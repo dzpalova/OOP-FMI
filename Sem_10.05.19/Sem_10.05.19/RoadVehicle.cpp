@@ -34,6 +34,10 @@ double RoadVehicle::findForce() const {
 	return num * age;
 }
 
+Vehicle * RoadVehicle::clone() {
+	return new RoadVehicle(*this);
+}
+
 void RoadVehicle::setName(const char * name) {
 	this->name = new char[strlen(name) + 1];
 	strcpy_s(this->name, strlen(name) + 1, name);

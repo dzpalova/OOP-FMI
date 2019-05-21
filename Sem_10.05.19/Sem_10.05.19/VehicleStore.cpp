@@ -4,7 +4,7 @@ void VehicleStore::copy(const VehicleStore& veh) {
 	count = veh.count;
 	curr = veh.curr;
 	for (int i = 0; i < curr; i++) {
-		vehicles[i] = veh.vehicles[i];
+		vehicles[i] = veh.vehicles[i]->clone();
 	}
 }
 

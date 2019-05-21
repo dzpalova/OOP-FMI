@@ -14,6 +14,7 @@ public:
 	WaterVehicle& operator=(const WaterVehicle&);
 	~WaterVehicle();
 
+	virtual Vehicle* clone();
 	bool addTurbine(int);
 	double findForce() const;
 	virtual void print() const;

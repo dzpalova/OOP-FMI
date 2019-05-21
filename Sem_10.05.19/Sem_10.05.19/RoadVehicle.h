@@ -10,8 +10,8 @@ public:
 	RoadVehicle& operator=(const RoadVehicle&);
 	~RoadVehicle();
 
-	double findForce() const;
-
+	virtual double findForce() const;
+	virtual Vehicle* clone();
 	void setName(const char*);
 	void setAge(int);
 	virtual void print() const;

@@ -14,6 +14,7 @@ public:
 	virtual ~Vehicle();
 
 	virtual double findForce() const = 0;
+	virtual Vehicle* clone() = 0;
 	virtual void print() const = 0;
 	const char* getMotor()const;
 };

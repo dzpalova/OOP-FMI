@@ -44,6 +44,10 @@ WaterVehicle::~WaterVehicle() {
 	delete[] turbines;
 }
 
+Vehicle * WaterVehicle::clone() {
+	return new WaterVehicle(*this);
+}
+
 bool WaterVehicle::addTurbine(int newTurbine) {
 	if (curr >= count && !resize()) {
 		return false;
