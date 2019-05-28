@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{788160F6-BCCF-4167-BFE5-D9E8906BFB2E}</ProjectGuid>
-    <RootNamespace>Sem170519</RootNamespace>
+    <ProjectGuid>{42D89372-ABB8-4A55-8D7A-C5B06AC9F0BB}</ProjectGuid>
+    <RootNamespace>Homework3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,7 +115,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="box.h" />
+    <ClInclude Include="CourierCompany.h" />
+    <ClInclude Include="element.h" />
+    <ClInclude Include="furniture.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="material.h" />
+    <ClInclude Include="Shoes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="box.cpp" />
+    <ClCompile Include="CourierCompany.cpp" />
+    <ClCompile Include="element.cpp" />
+    <ClCompile Include="furniture.cpp" />
+    <ClCompile Include="item.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="material.cpp" />
+    <ClCompile Include="Shoes.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,6 +3,7 @@
 void VehicleStore::copy(const VehicleStore& veh) {
 	count = veh.count;
 	curr = veh.curr;
+	vehicles = new Vehicle*[count];
 	for (int i = 0; i < curr; i++) {
 		vehicles[i] = veh.vehicles[i]->clone();
 	}
@@ -88,8 +89,12 @@ void VehicleStore::addVehicle() {
 	bool x;
 	std::cout << "Enter 1 if you want to make Road Vehicle or 0 if you want to make Water Vehicle:";
 	std::cin >> x;
-	if (x == 0) { vehicles[curr++] = createWaterVehicle(name); }
-	if (x == 1) { vehicles[curr++] = createRoadVehicle(name); }
+	if (x == 0) {
+		insert(createWaterVehicle(name));
+	}
+	if (x == 1) {
+		insert(createRoadVehicle(name));
+	}
 }
 
 const char * VehicleStore::getNameOfTheMostPowerfullMotor() const {
