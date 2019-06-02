@@ -76,7 +76,7 @@ void Item::showElements() const {
 	}
 }
 
-void Item::showDataForItem() const {
+void Item::showCommonData() const {
 	box.print();
 	cout << "The addres for delivery is: " << addres << endl;
 	cout << "The transport price for kg is: " << transportPriceForKg << endl;
@@ -85,6 +85,10 @@ void Item::showDataForItem() const {
 		cout << i + 1 << " : ";
 		elements[i].print();
 	}
+}
+
+void Item::showData() const {
+	showCommonData();
 }
 
 bool Item::saveInFile(const char * fileName) {

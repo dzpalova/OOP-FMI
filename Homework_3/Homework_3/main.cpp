@@ -4,6 +4,8 @@
 #include<cstring>
 int main() {
 
+	////       Making Item
+
 	//cout << "Now we will make Item :)" << endl;
 	//char addres[20];
 	//double price;
@@ -69,7 +71,7 @@ int main() {
 	//cout << "Do you want to see the data of the item ? (y/n) :";
 	//cin >> answer;
 	//if (answer == 'y') {
-	//	item1.showDataForItem();
+	//	item1.showData();
 	//	cout << endl;
 	//}
 
@@ -80,7 +82,7 @@ int main() {
 	//	cout << "The items are saved! " << endl;
 	//}
 
-
+	////          Making Furniture
 
 	//cout << "Now we will make furniture so add name for mark : ";
 	//char mark[20];
@@ -127,7 +129,7 @@ int main() {
 	//cout << "Do you want to see the weight of the furniture ? (y/n) :";
 	//cin >> answer;
 	//if (answer == 'y') {
-	//	cout << furniture.weightFurniture() << endl;
+	//	cout << furniture.weightItem() << endl;
 	//}
 
 	//cout << "Do you want to know if the furniture is frangible ? (y/n) :";
@@ -144,11 +146,11 @@ int main() {
 	//cout << "Do you want to see the price for transport of the furniture ? (y/n) :";
 	//cin >> answer;
 	//if (answer == 'y') {
-	//	cout << furniture.priceForTransoprt() << endl;
+	//	cout << furniture.transportPrice() << endl;
 	//}
 
 
-
+	////            Making Shoes
 
 	//cout << endl << "Now we will make shoes so tell if they can be tried or not (y/n) :";
 	//cin >> answer;
@@ -200,20 +202,32 @@ int main() {
 	//cout << "Do you want to see the price for transport ? (y/n) :";
 	//cin >> answer;
 	//if (answer == 'y') {
-	//	cout << shoes.price() << endl;
+	//	cout << shoes.transportPrice() << endl;
 	//}
 
 	//cout << "Do you want to see the data of the shoes ? (y/n) :";
 	//cin >> answer;
 	//if (answer == 'y') {
-	//	shoes.showDataForShoes();
+	//	shoes.showData();
 	//	cout << endl;
 	//}
 
-	CourierCompany company;
-	company.addItem();
-	company.showDataOfCourierCompany();
 
+	//                 Courier Company
+
+	int num;
+	cout << endl << "Enter how items your company will have: ";
+	cin >> num;
+	CourierCompany company(num);
+	cout << endl << "Now enter " << num << " Items: " << endl;
+	for (int i = 0; i < num; i++) {
+		company.addItem();
+	}
+	company.showDataOfCourierCompany();
+	cout << endl << "The company income is: " << company.income() << endl;
+	cout << "The volume of all items is: " << company.volumeOfAll() << endl;
+	company.ranking();
+	while (true) {}
 	return 0;
 }
 

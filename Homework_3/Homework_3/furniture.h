@@ -13,9 +13,8 @@ public:
 	Furniture& operator=(const Furniture&);
 	~Furniture();
 
-	double weightFurniture() const;
 	bool isFrangible() const;
-	double priceForTransoprt() const;
-
+	virtual double transportPrice() const;
+	virtual void showData() const;
 	virtual Item* clone();
 };

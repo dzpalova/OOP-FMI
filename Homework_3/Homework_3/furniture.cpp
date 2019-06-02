@@ -28,14 +28,6 @@ Furniture::~Furniture() {
 	delete[] mark;
 }
 
-double Furniture::weightFurniture() const {
-	double temp = 0.0;
-	for (int i = 0; i < curr; i++) {
-		temp += elements[i].getKilogram();
-	}
-	return temp;
-}
-
 bool Furniture::isFrangible() const {
 	for (int i = 0; i < curr; i++) {
 		if (elements[i].isFrangible()) {
@@ -45,13 +37,18 @@ bool Furniture::isFrangible() const {
 	return false;
 }
 
-double Furniture::priceForTransoprt() const {
-	double tempPrice = transportPrice();
+double Furniture::transportPrice() const {
+	double tempPrice = Item::transportPrice();
 	if (isFrangible()) {
 		tempPrice = tempPrice * 1.5 / 100;
-		tempPrice += transportPrice();
+		tempPrice += Item::transportPrice();
 	}
 	return tempPrice;
+}
+
+void Furniture::showData() const {
+	showCommonData();
+	cout << endl << "The mark is : " << mark << endl;
 }
 
 Item* Furniture::clone() {

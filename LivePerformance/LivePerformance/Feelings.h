@@ -13,6 +13,14 @@ public:
 	void print()const {
 		std::cout << name << " " << emoji << " rate:" << rate << std::endl;
 	}
+
+	void setRate(const double rate) {
+		this->rate = rate;
+	}
+
+	double getRate()const {
+		return rate;
+	}
 };
 
 class Happiness : public Feeling {

@@ -1,0 +1,4 @@
+The proportions of the box are : 2 3 4
+The addres is : burgas
+The transport price is : 3.2
+The count of the elements is : 2

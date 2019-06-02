@@ -10,7 +10,8 @@ void CourierCompany::copyCourierCompany(const CourierCompany &other) {
 }
 
 void CourierCompany::clean() {
-	for (int i = 0; i < countItems; i++) {
+	for (int i = 0; i < currPos; i++) {
+
 		delete items[i];
 	}
 	delete[] items;
@@ -24,7 +25,7 @@ bool CourierCompany::resize() {
 	for (int i = 0; i < currPos; i++) {
 		tempItems[i] = items[i];
 	}
-	clean();
+	delete[] items;
 	items = tempItems;
 	countItems += 2;
 	return true;
@@ -57,6 +58,31 @@ Furniture * CourierCompany::createFurniture() {
 
 	Furniture* furniture = new Furniture(box, addres, price, countElements, mark);
 	cout << endl;
+
+	char answer;
+	cout << "Do you want to add element? (y/n) :";
+	cin >> answer;
+	while (answer == 'y') {
+
+		char materialName[20];
+		bool isFrangible;
+
+		cout << "Enter name for material: ";
+		cin.ignore();
+		cin.getline(materialName, 20, '\n');
+		cout << "Enter 1 if the material is frangible of enter 0 if it's not: ";
+		cin >> isFrangible;
+		Material mat(materialName, isFrangible);
+
+		double kg;
+		cout << "KG for element: ";
+		cin >> kg;
+		Element el(mat, kg);
+		furniture->addElement(el);
+
+		cout << "Do you want to add element? (y/n) :";
+		cin >> answer;
+	}
 
 	return furniture;
 }
@@ -95,6 +121,30 @@ Shoes * CourierCompany::createShoes() {
 	Shoes* shoes = new Shoes(box, addres, price, countElements, ans);
 	cout << endl;
 
+	cout << "Do you want to add element? (y/n) :";
+	cin >> answer;
+	while (answer == 'y') {
+
+		char materialName[20];
+		bool isFrangible;
+
+		cout << "Enter name for material: ";
+		cin.ignore();
+		cin.getline(materialName, 20, '\n');
+		cout << "Enter 1 if the material is frangible of enter 0 if it's not: ";
+		cin >> isFrangible;
+		Material mat(materialName, isFrangible);
+
+		double kg;
+		cout << "KG for element: ";
+		cin >> kg;
+		Element el(mat, kg);
+		shoes->addElement(el);
+
+		cout << "Do you want to add element? (y/n) :";
+		cin >> answer;
+	}
+
 	return shoes;
 }
 
@@ -123,7 +173,7 @@ CourierCompany::~CourierCompany() {
 bool CourierCompany::addItem() {
 	char answer[20];
 	do {
-		cout << "Choose between shoes or furniture? : " << endl;
+		cout << endl << "Choose between shoes or furniture? : " << endl;
 		cin >> answer;
 	} while (strcmp(answer, "shoes") != 0 && strcmp(answer, "furniture") != 0);
 
@@ -158,7 +208,30 @@ double CourierCompany::volumeOfAll() const {
 void CourierCompany::showDataOfCourierCompany() const {
 	cout << "The Courier Company have " << currPos << " items: ";
 	for (int i = 0; i < currPos; i++) {
-		items[i]->showDataForItem();
+		cout << endl << "------------------------------------------------------------------------------" << endl;
+		items[i]->showData();
+	}
+}
+
+void CourierCompany::ranking() const {
+	Item* tempItem;
+	for (int i = 0; i < currPos; i++) {
+		for (int j = i + 1; j < currPos; j++) {
+			if (items[i]->transportPrice() < items[j]->transportPrice()) {
+				tempItem = items[i];
+				items[i] = items[j];
+				items[j] = tempItem;
+			}
+		}
+	}
+	cout << endl << "/////////////////  10 most expensive items   /////////////////" << endl;
+	int temp = 10;
+	if (currPos < temp) {
+		temp = currPos;
+	}
+	for (int i = 0; i < temp; i++) {
+		cout << endl << "------------------------------------------------------------------------------" << endl;
+		items[i]->showData();
 	}
 }
 

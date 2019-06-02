@@ -5,17 +5,17 @@ Shoes::Shoes(Box box, const char* addres, double transportPriceForKg, int countE
 	this->canBeTried = canBeTried;
 }
 
-double Shoes::price() const {
-	double tempPrice = transportPrice();
+double Shoes::transportPrice() const {
+	double tempPrice = Item::transportPrice();
 	if (canBeTried) {
 		tempPrice = tempPrice * 3 / 100;
-		tempPrice += transportPrice();
+		tempPrice += Item::transportPrice();
 	}
 	return tempPrice;
 }
 
-void Shoes::showDataForShoes() const {
-	showDataForItem();
+void Shoes::showData() const {
+	showCommonData();
 	cout << "The shoes ";
 	if (canBeTried) {
 		cout << "can be tried! " << endl;

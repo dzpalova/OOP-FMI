@@ -27,13 +27,14 @@ public:
 
 	bool addElement(const Element&);
 	double weightItem() const;
-	double transportPrice() const;
+	virtual double transportPrice() const;
 	void showElements() const;
-	void showDataForItem() const;
+	void showCommonData() const;
+	virtual void showData() const;
 	bool saveInFile(const char*);
 
 	int getCurr() const;
 	Box getBox() const;
 
-	virtual Item* clone();  //po-skoro da q napravq chisto virtualna
+	virtual Item* clone();
 };

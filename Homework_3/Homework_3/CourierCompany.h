@@ -21,4 +21,5 @@ public:
 	double income() const;
 	double volumeOfAll() const;
 	void showDataOfCourierCompany() const;
+	void ranking() const;
 };
